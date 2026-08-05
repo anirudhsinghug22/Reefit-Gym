@@ -804,9 +804,11 @@ a {
 }
 
 .section-title {
-    font-size: 2.4rem;
+    font-size: clamp(1.65rem, 5vw, 2.4rem);
     font-weight: 900;
     margin-bottom: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .section-subtitle, .section-desc {
@@ -1092,10 +1094,34 @@ a {
 
 /* BMI CALCULATOR & MOBILE RESPONSIVE CALIBRATION */
 .calc-benefits { list-style: none; margin-top: 20px; }
-.calc-benefits li { font-size: 1rem; margin-bottom: 12px; color: var(--text-white); display: flex; align-items: center; gap: 8px; }
-.calculator-card h3 { font-size: 1.5rem; margin-bottom: 24px; text-align: center; }
+.calc-benefits li { font-size: 1rem; margin-bottom: 12px; color: var(--text-white); display: flex; align-items: center; gap: 8px; word-break: break-word; }
+.calculator-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.calculator-card h3 {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    margin-bottom: 24px;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
 
-.calc-form .input-group { margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
+.calc-form {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.calc-form .input-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
 .calc-form label { font-size: 0.9rem; font-weight: 700; color: var(--text-white); }
 .calc-form input, .calc-form select {
     background: var(--bg-dark);
@@ -1106,12 +1132,29 @@ a {
     outline: none;
     font-size: 1rem;
     font-weight: 600;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .calc-form input:focus, .calc-form select:focus {
     border-color: var(--gold-primary);
     box-shadow: 0 0 12px var(--gold-glow);
 }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+}
 
 .calc-result {
     margin-top: 20px;
